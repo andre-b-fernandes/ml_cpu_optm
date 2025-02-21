@@ -24,5 +24,4 @@ def euclidean_distance(Q: np.ndarray, X: np.ndarray) -> list[list[float]]:
                 diff = Q[i][k] - X[j][k]
                 dist += diff * diff  # Squaring each difference
             D_matrix[i][j] = sqrt(dist)  # Compute final Euclidean distance
-
     return D_matrix
