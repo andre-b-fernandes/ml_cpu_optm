@@ -1,0 +1,8 @@
+{
+  "pythonPath": "/Users/fernandoandrefernandes/anaconda3/envs/ml_cpu_optm/bin/python",
+  "venvPath": "/Users/fernandoandrefernandes/anaconda3/envs",
+  "venv": "ml_cpu_optm",
+  "include": ["ml_cpu_optm"],
+  "exclude": ["node_modules", "__pycache__"],
+  "typeCheckingMode": "basic"
+}
