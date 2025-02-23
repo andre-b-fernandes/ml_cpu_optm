@@ -10,3 +10,4 @@ vectorized_c_linux:
 	gcc --shared -fPIC -O2 -mavx -lm -o vectorized.so c/vectorized.c
 vectorized_cache_friendly_loop_unrolling_c_linux:
 	gcc --shared -fPIC -O2 -mavx -lm -o vectorized_cache_friendly_loop_unrolling.so c/vectorized_cache_friendly_loop_unrolling.c
+all: naive_c naive_loop_unrolling_c vectorized_c_macos vectorized_cache_friendly_loop_unrolling_c_macos

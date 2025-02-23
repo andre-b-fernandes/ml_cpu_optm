@@ -15,7 +15,7 @@ def euclidean_distance(Q: np.ndarray, X: np.ndarray) -> list[list[float]]:
     N = len(X)  # X has N rows, D features
 
     # Initialize distance matrix (M x N)
-    D_matrix = [[0.0 for _ in range(N)] for _ in range(M)]
+    distances = [[0.0 for _ in range(N)] for _ in range(M)]
 
     for i in range(M):  # Iterate over each query vector
         for j in range(N):  # Iterate over each dataset vector
@@ -23,5 +23,5 @@ def euclidean_distance(Q: np.ndarray, X: np.ndarray) -> list[list[float]]:
             for k in range(D):  # Compute squared distance
                 diff = Q[i][k] - X[j][k]
                 dist += diff * diff  # Squaring each difference
-            D_matrix[i][j] = sqrt(dist)  # Compute final Euclidean distance
-    return D_matrix
+            distances[i][j] = sqrt(dist)  # Compute final Euclidean distance
+    return distances
