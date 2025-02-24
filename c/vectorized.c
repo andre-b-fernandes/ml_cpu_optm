@@ -1,5 +1,5 @@
 // SSE intrinsics
-// 4 bits for SSE, 8 bits for AVX
+// 4 for SSE, 8 for AVX
 #ifdef __x86_64__
    #include <immintrin.h>
 #else  	

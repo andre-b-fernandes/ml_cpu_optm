@@ -2,9 +2,9 @@ import ctypes
 import numpy as np
 
 # Load the compiled C shared library
-lib = ctypes.CDLL("./naive.so")  # Use ".dll" on Windows
+lib = ctypes.CDLL("./naive_cache_friendly.so")  # Use ".dll" on Windows
 
-# Define function prototype: void euclidean_distance(float*, float*, float*, int, int, int)
+# Define function prototype: void euclidean_distance(double*, double*, double*, int, int, int)
 lib.euclidean_distance.argtypes = [
     ctypes.POINTER(ctypes.c_float),  # Q
     ctypes.POINTER(ctypes.c_float),  # X
@@ -20,15 +20,15 @@ def euclidean_distance(Q: np.ndarray, X: np.ndarray) -> np.ndarray:
     N = len(X)
 
     # Flatten NumPy arrays to 1D C-compatible arrays
-    q_flat = Q.flatten()
-    x_flat = X.flatten()
-    distances = np.zeros((M, N), dtype=np.float32)
+    Q_flat = Q.flatten()
+    X_flat = X.flatten()
+    D_matrix = np.zeros((M, N), dtype=np.float32)
 
     # Convert to C pointers
-    q_ptr = q_flat.ctypes.data_as(ctypes.POINTER(ctypes.c_float))
-    x_ptr = x_flat.ctypes.data_as(ctypes.POINTER(ctypes.c_float))
-    d_ptr = distances.ctypes.data_as(ctypes.POINTER(ctypes.c_float))
+    Q_ptr = Q_flat.ctypes.data_as(ctypes.POINTER(ctypes.c_float))
+    X_ptr = X_flat.ctypes.data_as(ctypes.POINTER(ctypes.c_float))
+    D_ptr = D_matrix.ctypes.data_as(ctypes.POINTER(ctypes.c_float))
 
     # Call the C function
-    lib.euclidean_distance(q_ptr, x_ptr, d_ptr, M, N, D)
-    return distances
+    lib.euclidean_distance(Q_ptr, X_ptr, D_ptr, M, N, D)
+    return D_matrix

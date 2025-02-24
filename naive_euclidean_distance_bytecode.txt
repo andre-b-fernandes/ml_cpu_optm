@@ -23,7 +23,7 @@
 
  18         106 LOAD_CLOSURE            10 (N)
             108 BUILD_TUPLE              1
-            110 LOAD_CONST               2 (<code object <listcomp> at 0x100979a30, file "/Users/fernandoandrefernandes/Documents/Andre/repositories/ml_cpu_optm/ml_cpu_optm/naive.py", line 18>)
+            110 LOAD_CONST               2 (<code object <listcomp> at 0x104e55a30, file "/Users/fernandoandrefernandes/Documents/Andre/repositories/ml_cpu_optm/ml_cpu_optm/naive.py", line 18>)
             112 MAKE_FUNCTION            8 (closure)
             114 LOAD_GLOBAL              3 (NULL + range)
             126 LOAD_FAST                2 (M)
@@ -32,7 +32,7 @@
             142 GET_ITER
             144 PRECALL                  0
             148 CALL                     0
-            158 STORE_FAST               4 (D_matrix)
+            158 STORE_FAST               4 (distances)
 
  20         160 LOAD_GLOBAL              3 (NULL + range)
             172 LOAD_FAST                2 (M)
@@ -86,7 +86,7 @@
             354 LOAD_FAST                7 (dist)
             356 PRECALL                  1
             360 CALL                     1
-            370 LOAD_FAST                4 (D_matrix)
+            370 LOAD_FAST                4 (distances)
             372 LOAD_FAST                5 (i)
             374 BINARY_SUBSCR
             384 LOAD_FAST                6 (j)
@@ -95,10 +95,10 @@
 
  21     >>  392 JUMP_BACKWARD          102 (to 190)
 
- 27     >>  394 LOAD_FAST                4 (D_matrix)
+ 27     >>  394 LOAD_FAST                4 (distances)
             396 RETURN_VALUE
 
-Disassembly of <code object <listcomp> at 0x100979a30, file "/Users/fernandoandrefernandes/Documents/Andre/repositories/ml_cpu_optm/ml_cpu_optm/naive.py", line 18>:
+Disassembly of <code object <listcomp> at 0x104e55a30, file "/Users/fernandoandrefernandes/Documents/Andre/repositories/ml_cpu_optm/ml_cpu_optm/naive.py", line 18>:
               0 COPY_FREE_VARS           1
 
  18           2 RESUME                   0
@@ -106,7 +106,7 @@ Disassembly of <code object <listcomp> at 0x100979a30, file "/Users/fernandoandr
               6 LOAD_FAST                0 (.0)
         >>    8 FOR_ITER                27 (to 64)
              10 STORE_FAST               1 (_)
-             12 LOAD_CONST               0 (<code object <listcomp> at 0x100a41f10, file "/Users/fernandoandrefernandes/Documents/Andre/repositories/ml_cpu_optm/ml_cpu_optm/naive.py", line 18>)
+             12 LOAD_CONST               0 (<code object <listcomp> at 0x104f1df10, file "/Users/fernandoandrefernandes/Documents/Andre/repositories/ml_cpu_optm/ml_cpu_optm/naive.py", line 18>)
              14 MAKE_FUNCTION            0
              16 LOAD_GLOBAL              1 (NULL + range)
              28 LOAD_DEREF               2 (N)
@@ -119,7 +119,7 @@ Disassembly of <code object <listcomp> at 0x100979a30, file "/Users/fernandoandr
              62 JUMP_BACKWARD           28 (to 8)
         >>   64 RETURN_VALUE
 
-Disassembly of <code object <listcomp> at 0x100a41f10, file "/Users/fernandoandrefernandes/Documents/Andre/repositories/ml_cpu_optm/ml_cpu_optm/naive.py", line 18>:
+Disassembly of <code object <listcomp> at 0x104f1df10, file "/Users/fernandoandrefernandes/Documents/Andre/repositories/ml_cpu_optm/ml_cpu_optm/naive.py", line 18>:
  18           0 RESUME                   0
               2 BUILD_LIST               0
               4 LOAD_FAST                0 (.0)
