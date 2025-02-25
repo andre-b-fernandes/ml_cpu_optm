@@ -1,5 +1,7 @@
 naive_c:
 	gcc --shared -fPIC -O0 -o naive.so c/naive.c
+naive_c_optimized:
+	gcc --shared -fPIC -O3 -o naive.so c/naive.c
 naive_loop_unrolling_c:
 	gcc --shared -fPIC -O0 -o naive_loop_unrolling.so c/naive_loop_unrolling.c
 naive_cache_friendly_c:
