@@ -1,5 +1,4 @@
 import numpy as np
-import math
 from numba import njit
 from math import sqrt
 
