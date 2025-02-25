@@ -1,23 +1,30 @@
 import numpy as np
 import math
 from numba import njit
+from math import sqrt
 
 @njit
 def euclidean_distance(Q: np.ndarray, X: np.ndarray) -> list[list[float]]:
-    """Computes Euclidean distance using a cache-friendly approach in pure Python"""
-    M = len(Q)
-    N = len(X)
-    D = len(Q[0])
-    
-    Q_sq = [sum([q[d] ** 2 for d in range(D)]) for q in Q]
-    X_sq = [sum([x[d] ** 2 for d in range(D)]) for x in X]
-    distances = [[0.0] * N for _ in range(M)]
-    # Transpose X for better cache locality
-    X_T = [[X[n][d] for n in range(N)] for d in range(D)]
-        
-    for i in range(M):
-        for j in range(N):
-            dot_product = sum([Q[i][d] * X_T[d][j] for d in range(D)])
-            distances[i][j] = math.sqrt(Q_sq[i] - 2 * dot_product + X_sq[j])
+    """
+    Compute the Euclidean distance between two matrices in a naive way.
+    Pure python implementation
 
+    Arguments:
+        Q -- A matrix of shape (M, D)
+        X -- A matrix of shape (N, D)
+    Returns: A matrix of shape (M, N) where each element (i, j) is the Euclidean distance between Q[i] and X[j]
+    """   
+    M, D = len(Q), len(Q[0])  # Q has M rows, D features
+    N = len(X)  # X has N rows, D features
+
+    # Initialize distance matrix (M x N)
+    distances = [[0.0 for _ in range(N)] for _ in range(M)]
+
+    for i in range(M):  # Iterate over each query vector
+        for j in range(N):  # Iterate over each dataset vector
+            dist = 0.0
+            for k in range(D):  # Compute squared distance
+                diff = Q[i][k] - X[j][k]
+                dist += diff * diff  # Squaring each difference
+            distances[i][j] = sqrt(dist)  # Compute final Euclidean distance
     return distances
